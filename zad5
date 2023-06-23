@@ -1,0 +1,57 @@
+using System;
+
+class Program
+{
+    static void SelectionSort(int[] array)
+    {
+        int n = array.Length;
+
+        for (int i = 0; i < n - 1; i++)
+        {
+            int minIndex = i;
+
+            for (int j = i + 1; j < n; j++)
+            {
+                if (array[j] < array[minIndex])
+                {
+                    minIndex = j;
+                }
+            }
+
+            if (minIndex != i)
+            {
+                int temp = array[i];
+                array[i] = array[minIndex];
+                array[minIndex] = temp;
+            }
+        }
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("Podaj rozmiar tablicy:");
+        int size = int.Parse(Console.ReadLine());
+
+        int[] array = new int[size];
+        Random random = new Random();
+
+        Console.WriteLine("Wygenerowana tablica przed sortowaniem:");
+
+        for (int i = 0; i < size; i++)
+        {
+            array[i] = random.Next(100);
+            Console.Write(array[i] + " ");
+        }
+
+        SelectionSort(array);
+
+        Console.WriteLine("\nPosortowana tablica:");
+
+        for (int i = 0; i < size; i++)
+        {
+            Console.Write(array[i] + " ");
+        }
+
+        Console.ReadLine();
+    }
+}
