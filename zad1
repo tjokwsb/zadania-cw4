@@ -1,0 +1,30 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Podaj rozmiar tablicy:");
+        int size = int.Parse(Console.ReadLine());
+
+        int[] array = new int[size];
+        Random random = new Random();
+
+        Console.WriteLine("Wygenerowana tablica:");
+
+        for (int i = 0; i < size; i++)
+        {
+            array[i] = random.Next(100); // Generowanie losowej wartości od 0 do 99
+            Console.Write(array[i] + " ");
+        }
+
+        Console.WriteLine("\nZawartość tablicy od tyłu:");
+
+        for (int i = size - 1; i >= 0; i--)
+        {
+            Console.Write(array[i] + " ");
+        }
+
+        Console.ReadLine();
+    }
+}
